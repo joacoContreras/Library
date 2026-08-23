@@ -247,6 +247,76 @@ button {
     gap: 1.25rem;
 }
 
+.shelf-header {
+    display: flex;                                                                                                                                                      
+    justify-content: space-between;                                                                                                                                     
+    align-items: flex-start;                                                                                                                                                    border-bottom: 1px solid var(--border-color);                                                                                                                       
+    padding-bottom: 1rem;                                                                                                                                                       gap: 1rem;        
+}
+
+.shelf-title {                                                                                                                                                          
+    font-family: var(--title-font);                                                                                                                                     
+    font-size: 1.4rem;                                                                                                                                                  
+    font-weight: 700;                                                                                                                                                   
+    color: var(--primary-color);                                                                                                                                        
+}                                                                                                                                                                       
+                                                                                                                                                                            
+.shelf-description {                                                                                                                                                    
+    font-size: 0.9rem;                                                                                                                                                  
+    color: var(--neutral-color);                                                                                                                                        
+    margin-top: 0.2rem;                                                                                                                                                     
+}    
+
+.btn-add-book {                                                                                                                                                         
+    display: flex;                                                                                                                                                      
+    align-items: center;                                                                                                                                                
+    gap: 0.4rem;                                                                                                                                                        
+    background-color: var(--tertiary-color);                                                                                                                            
+    color: var(--primary-color);                                                                                                                                        
+    border: 1px solid var(--primary-color);                                                                                                                             
+    border-radius: 6px;                                                                                                                                                 
+    padding: 0.45rem 0.9rem;                                                                                                                                            
+    font-size: 0.85rem;                                                                                                                                                 
+    font-weight: 600;                                                                                                                                                   
+    cursor: pointer;                                                                                                                                                    
+    white-space: nowrap;                                                                                                                                                
+    transition: all 0.2s ease;                                                                                                                                          
+}                                                                                                                                                                       
+                                                                                                                                                                            
+.btn-add-book:hover {                                                                                                                                                   
+    background-color: var(--primary-color);                                                                                                                             
+    color: var(--tertiary-color);                                                                                                                                       
+}                                                                                                                                                                       
+                                                                                                                                                                            
+.btn-add-book .btn-icon {                                                                                                                                               
+    width: 14px;                                                                                                                                                        
+    height: 14px;                                                                                                                                                       
+    filter: invert(24%) sepia(21%) saturate(986%) hue-rotate(92deg); /* Tinte verde */                                                                                  
+}                                                                                                                                                                       
+                                                                                                                                                                            
+.btn-add-book:hover .btn-icon {                                                                                                                                         
+    filter: brightness(0) invert(1); /* Blanco al hover */                                                                                                              
+}                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                        
+.shelf-books {                                                                                                                                                          
+    display: grid;                                                                                                                                                      
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));                                                                                                       
+    gap: 1rem;                                                                                                                                                          
+    min-height: 80px;                                                                                                                                                   
+}                                                                                                                                                                       
+                                                                                                                                                                            
+.empty-shelf-msg {                                                                                                                                                      
+    grid-column: 1 / -1; /* Ocupa todo el ancho */                                                                                                                      
+    color: var(--neutral-color);                                                                                                                                        
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: rgba(45, 75, 55, 0.02);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
 .footer {
     grid-area: footer;
     background-color: var(--tertiary-color);
