@@ -90,16 +90,16 @@ button {
 
 
 .playfair-display {
-  font-family: "Playfair Display", serif;
+  font-family: var(--title-font);
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
 }
 
 .source-sans-3 {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: var(--body-font);
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -110,4 +110,41 @@ button {
     --neutral-color: #5C574F;
     --title-font: 'Playfair Display', serif;
     --body-font: 'Source Sans 3', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 4fr;
+}
+
+.sidebar {
+    background-color: var(--tertiary-color);
+    padding: 2rem 1.5rem;
+}
+
+.library {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "content"
+        "footer";
+    min-height: 100vh;
+}
+
+.books-container {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    align-content: start;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--neutral-color);
+    color: var(--tertiary-color);
+    padding: 1.5rem;
+    text-align: center;
 }
