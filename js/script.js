@@ -47,6 +47,75 @@ function addBookToLibrary(title, author, pages, read, category) {
     myLibrary.push(book);
 }
 
+// Shelves Logic
+const booksContainer = document.querySelector('.books-container');
+
+function createShelfElement(category) {
+    const shelf = document.createElement('section');
+    shelf.classList.add('shelf');
+    shelf.dataset.categoryId = category.id;
+
+    const header = document.createElement('div');
+    header.classList.add('shelf-header');
+   
+    const info = document.createElement('div');
+    info.classList.add('shelf-info');    
+
+    const title = document.createElement('h2');
+    title.classList.add('shelf-title');
+    title.textContent = category.name;
+    
+    const descr = document.createElement('p');
+    descr.classList = document.add('shelf-description');
+    descr.textContent = category.description || 'No description provided.';
+
+    info.appendChild(title);
+    info.appendChild(descr);
+
+    // Btn para agregar libro a una categoria
+    const btnAddBook = document.createElement('button');
+    btnAddBook.type = 'button';
+    btnAddBook.classList.add('btn-add-book');
+    btnAddBook.dataset.categoryId = category.id;
+    btnAddBook.innerHTML = `
+        <img src ="../images/add.svg" alt="" class="btn-icon">
+        <span>Add Book</span>
+    `;
+
+    header.appendChild(info);
+    header.appendChild(btnAddBook);
+
+    // Contenedor de Libros
+    const booksGrid = document.createElement('div');
+    booksGrid.classList.add('shelf-books');
+
+    if(category.books.length === 0) {
+        const emptyMsg = document.createElement('p');
+        emptyMsg.classList.add('empty-shelf-msg');                                                                                                                      
+        emptyMsg.textContent = 'No books in this shelf yet. Click "Add Book" to start cataloging.';                                                                     
+        booksGrid.appendChild(emptyMsg);        
+    } else {
+        // Renderizamos las tarjetas de libros
+    }
+
+    shelf.appendChild(header);
+    shelf.appendChild(booksGrid);
+
+    return shelf;
+}
+
+function renderShelves() {
+    // Limpiamos el contenedor antes de redibujar
+    booksContainer.innerHTML = '';
+
+    categories.forEach(category => {
+        const shelfElement = createShelfElement(category);
+        booksContainer.appendChild(shelfElement);
+    })
+}
+
+
+
 // ==========================================================================
 // Modal Logic
 // ==========================================================================
@@ -98,7 +167,14 @@ categoryForm.addEventListener('submit', (e) => {
 
     if (!name) return;
 
-    console.log('New Category created:', { name, description });
+    // 1. Creamos la nueva instaciona de Category
+    const newCategory = new Category(crypto.randomUUID(), name, description);
+
+    // 2. La guardamos en el array global
+    categories.push(newCategory);
+
+    // 3. Volvemos a renderizar los estantes en la pantalla
+    renderShelves();
 
     // Cierra el modal tras guardar
     closeModal();
