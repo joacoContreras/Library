@@ -1,22 +1,49 @@
-// Books Logic
-const myLibrary = [];
+// Object Book
+const categories = [];
 
-function Book(id, title, author, pages, read) {
+function addCategory(name, description) {
+    const id = crypto.randomUUID();
+    const newCategory = new Category(id, name, description);
+    categories.push(newCategory);
+    return newCategory;
+}
+
+function Book(id, title, author, pages, read, category) {
     // the constructor...
     this.id = id,
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
-        return id, title, author, pages, read;
-    }
+    this.category = category
 }
 
-function addBookToLibrary(title, author, pages, read) {
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+};
+
+// Object Category
+function Category (id, name, description) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.books = [];
+} 
+
+// Metodos en el prototipo para no duplicar funciones en memoria
+Category.prototype.addBook = function(book) {
+    this.books.push(book);
+}
+
+Category.prototype.removeBook = function(bookId) {
+    this.books = this.books.filter(book => book.id !==book);
+}
+
+
+function addBookToLibrary(title, author, pages, read, category) {
     // take params, create a book then store it in the array
     const newID = crypto.randomUUID();
-    let book = new Book(newID, title, author, pages, read);
+    let book = new Book(newID, title, author, pages, read, category);
     myLibrary.push(book);
 }
 
