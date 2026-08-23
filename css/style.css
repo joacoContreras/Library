@@ -116,6 +116,7 @@ button {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(220px, 1fr) 4fr;
+    font-family: var(--body-font)
 }
 
 .sidebar {
@@ -143,8 +144,30 @@ button {
 
 .footer {
     grid-area: footer;
-    background-color: var(--neutral-color);
-    color: var(--tertiary-color);
-    padding: 1.5rem;
+    background-color: var(--tertiary-color);
+    background-color: #E1D9CF;
+    color: var(--neutral-color);
+    padding: 0.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.footer-links-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700px;
+}
+
+#footer-title {
+    font-family: var(--title-font);
+    font-size: 2rem;
+}
+
+#footer-copyright {
+    opacity: 0.5;
 }
