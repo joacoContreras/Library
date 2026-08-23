@@ -87,3 +87,27 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.source-sans-3 {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+:root {
+    --primary-color: #2D4B37;
+    --secondary-color: #4A2C2A;
+    --tertiary-color: #F9F4E8;
+    --neutral-color: #5C574F;
+    --title-font: 'Playfair Display', serif;
+    --body-font: 'Source Sans 3', sans-serif;
+}
