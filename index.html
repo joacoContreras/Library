@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar"></aside>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a class="sidebar-icon-box" href="#">
+                    <img src="images/icon.svg" alt="Athenaeum Icon" class="sidebar-icon">
+                </a>
+                <h1 class="title">Athenaeum</h1>
+                <p class="subtitle">PRIVATE COLLECTION</p>
+            </div>
+            <button class="new">
+                <img src="images/add.svg" alt="" class="btn-icon">
+                <span>Catalog New Entry</span>
+            </button>
+        </aside>
         <main class="library">
             <div class="books-container"></div>
             <footer class="footer">
                 <p id="footer-title">Athenaeum</p>
                 <div class="footer-links-container">
-                    <p href="">Archive Policy</p>
-                    <p href="">Librarian Access</p>
-                    <p href="">Support</p>
+                    <a href="#" class="footer-link">Archive Policy</a>
+                    <a href="#" class="footer-link">Librarian Access</a>
+                    <a href="#" class="footer-link">Support</a>
                 </div>
                 <p id="footer-copyright">© 2026 Athenaeum Study Systems</p>
             </footer>

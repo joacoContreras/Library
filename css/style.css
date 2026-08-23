@@ -89,6 +89,8 @@ button {
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 .playfair-display {
   font-family: var(--title-font);
   font-optical-sizing: auto;
@@ -105,23 +107,115 @@ button {
 
 :root {
     --primary-color: #2D4B37;
+    --primary-hover: #223a2b;
     --secondary-color: #4A2C2A;
     --tertiary-color: #F9F4E8;
     --neutral-color: #5C574F;
-    --title-font: 'Playfair Display', serif;
-    --body-font: 'Source Sans 3', sans-serif;
+    --border-color: rgba(45, 75, 55, 0.12);
+    --title-font: 'Playfair Display', Georgia, serif;
+    --body-font: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: minmax(220px, 1fr) 4fr;
-    font-family: var(--body-font)
+    grid-template-columns: minmax(300px, 1fr) 4fr;
+    font-family: var(--body-font);
 }
 
 .sidebar {
     background-color: var(--tertiary-color);
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.sidebar-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    background-color: transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-icon-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(45, 75, 55, 0.15);
+}
+
+.sidebar-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.sidebar .title {
+    font-family: var(--title-font);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.sidebar .subtitle {
+    font-family: var(--body-font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--neutral-color);
+    text-transform: uppercase;
+}
+
+.sidebar .new {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(45, 75, 55, 0.2);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.sidebar .new .btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar .new:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(45, 75, 55, 0.3);
+}
+
+.sidebar .new:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(45, 75, 55, 0.2);
 }
 
 .library {
@@ -145,29 +239,50 @@ button {
 .footer {
     grid-area: footer;
     background-color: var(--tertiary-color);
-    background-color: #E1D9CF;
     color: var(--neutral-color);
-    padding: 0.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+#footer-title {
+    font-family: var(--title-font);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
 }
 
 .footer-links-container {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    font-weight: 700px;
 }
 
-#footer-title {
-    font-family: var(--title-font);
-    font-size: 2rem;
+.footer-link {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--neutral-color);
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 #footer-copyright {
-    opacity: 0.5;
+    font-family: var(--body-font);
+    font-size: 0.8rem;
+    color: var(--neutral-color);
+    opacity: 0.75;
+    margin-top: 0.25rem;
 }
