@@ -19,7 +19,7 @@
                 <h1 class="title">Athenaeum</h1>
                 <p class="subtitle">PRIVATE COLLECTION</p>
             </div>
-            <button class="new">
+            <button id="new-category" class="new">
                 <img src="images/add.svg" alt="" class="btn-icon">
                 <span>Catalog New Entry</span>
             </button>
@@ -37,5 +37,30 @@
             </footer>
         </main>
     </div>
+
+    <!-- Modal de Nueva Categoría -->
+    <div id="modal-category" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 class="modal-title">New Category</h2>
+                <button type="button" id="btn-close-modal" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="category-form" class="modal-form">
+                <div class="form-group">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" name="categoryName" placeholder="e.g. Science Fiction" required>
+                </div>
+                <div class="form-group">
+                    <label for="category-description">Description</label>
+                    <textarea id="category-description" name="categoryDescription" rows="3" placeholder="Brief description of the category..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="btn-cancel-modal" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
